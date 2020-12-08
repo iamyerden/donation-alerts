@@ -1,0 +1,11 @@
+version: '3.5'
+
+services:
+  postgres:
+    container_name: donation_alerts
+    image: postgres:11
+    env_file:
+      - .env
+    ports:
+      - 5433:5432
+    restart: unless-stopped
