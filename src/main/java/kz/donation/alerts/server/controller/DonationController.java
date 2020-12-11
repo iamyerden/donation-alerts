@@ -30,6 +30,7 @@ public class DonationController {
 
     @RequestMapping(value = "/public/donation/create", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public Donation create(@RequestBody Donation donation) {
+        System.out.println(donation.toString());
         accountService.changeCashAccount(donation.getReceiver_id(), donation.getAmount());
         return donationService.addDonation(donation);
     }

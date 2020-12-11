@@ -27,6 +27,11 @@ public class AccountService implements IAccountService {
     }
 
     @Override
+    public List<Account> search(String username) {
+        return accountRepository.search(username);
+    }
+
+    @Override
     public Account getAccountById(Integer id) {
         return this.accountRepository.getById(id);
     }
@@ -53,6 +58,7 @@ public class AccountService implements IAccountService {
 
     @Override
     public Account changeCashAccount(Integer id, Double amount) {
+        System.out.println("receiver id: " + id + "; amount: " + amount);
         Account account = this.accountRepository.getById(id);
         account.setCash(account.getCash() + amount);
         return account;

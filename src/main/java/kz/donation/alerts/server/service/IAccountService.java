@@ -7,6 +7,7 @@ import java.util.List;
 public interface IAccountService {
     Account addAccount(Account account);
     List<Account> getAllAccounts();
+    List<Account> search(String username);
     Account getAccountById(Integer id);
     Account getAccountByUsername(String username);
     Account updateAccount(Account account);

@@ -19,6 +19,11 @@ public class AccountController {
         return accountService.getAllAccounts();
     }
 
+    @RequestMapping(value = "/public/account/search", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+    public List<Account> search(@RequestParam String username) {
+        return accountService.search(username);
+    }
+
     @RequestMapping(value = "/public/account/read/{id}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
     public Account get(@PathVariable("id") Integer id) {
         return accountService.getAccountById(id);
